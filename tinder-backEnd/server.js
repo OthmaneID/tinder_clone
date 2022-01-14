@@ -7,19 +7,24 @@ import Cards from "./dbCards.js"
 // App config
 
 const app = express()
-const port = process.env.PORT || 8001
+const port = process.env.PORT || 5000
 const connectionURL =
-    "mongodb+srv://<admin>:idboufker123Tamanar@cluster0.3kiib.mongodb.net/tinder-db?retryWrites=true&w=majority"
+    "mongodb+srv://admin:idboufker123Tamanar@cluster0.3kiib.mongodb.net/tinder-db?retryWrites=true&w=majority"
 // Middlewares
 
-app.use(express.json)
-app.use(cors)
+app.use(express.json())
+app.use(cors())
 
 // DB config
 mongoose.connect(connectionURL, {
+
     useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
+
+    useUnifiedTopology: true
+
+}, err => {
+    if (err) throw err;
+    console.log('Connected to MongoDB!!!')
 });
 
 // API Endpoints
