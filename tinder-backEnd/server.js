@@ -7,7 +7,7 @@ import Cards from "./dbCards.js"
 // App config
 
 const app = express()
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 8001
 const connectionURL =
     "mongodb+srv://admin:idboufker123Tamanar@cluster0.3kiib.mongodb.net/tinder-db?retryWrites=true&w=majority"
 // Middlewares
@@ -29,7 +29,6 @@ mongoose.connect(connectionURL, {
 
 // API Endpoints
 app.get('/', (req, res) => {
-    // Means Okay
     res.status(200).send("Hello World !!!");
 });
 
